@@ -1,13 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
-  --primary-navy: #001f48;
-  --primary-blue: #0f5ca3;
-  --neutral-grey-400: #9ca3af;
-  --font-lato: "Lato", sans-serif;
-  --font-oxygen: "Oxygen", sans-serif;
+  --primary-navy: #001F48;
+  --secondary-blue: #002F6C;
+  --accent-green: #77bc1f;
+  --accent-green-dark: #68AE18;
+  --light-bg: #F8FAFC;
+  --off-white: #fafafa;
+  --text-dark: #283033;
 }
 
 * {
@@ -15,356 +15,590 @@
 }
 
 body {
-  font-family: var(--font-lato);
+  font-family: "Lato", sans-serif;
   margin: 0;
   padding: 0;
   background: #fff;
-  color: #333;
+  color: var(--text-dark);
+  line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-oxygen);
+  font-family: "Oxygen", sans-serif;
 }
 
 .f-light {
   font-weight: 300;
 }
 
-/* Hero Section */
-.hero {
+.f-bold {
+  font-weight: 700;
+}
+
+/* ==================== HERO SECTION ==================== */
+.homepage .hero {
+  background: var(--primary-navy);
+  height: 100vh;
   position: relative;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(135deg, var(--primary-navy) 0%, #003366 100%);
-  color: white;
   overflow: hidden;
 }
 
-.hero::before {
-  content: '';
+.homepage .hero .bg-img-1,
+.homepage .hero .bg-img-2 {
   position: absolute;
   inset: 0;
-  background: url('/hero-bg.jpg') center/cover no-repeat;
-  opacity: 0.3;
-}
-
-.hero h1 {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  font-weight: 300;
-  margin-bottom: 2rem;
-  position: relative;
+  background-size: cover;
+  background-position: center;
   z-index: 1;
 }
 
-.hero .btn-primary {
-  background: var(--primary-navy);
-  color: white;
-  padding: 1rem 2.5rem;
-  font-size: 1rem;
-  font-weight: 600;
+.homepage .hero .bg-img-1 {
+  background-image: url('/hero-bg.jpg');
+  opacity: 0.4;
+}
+
+.homepage .hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 31, 72, 0) 64.58%, #001f48 100%);
+  z-index: 2;
+}
+
+.homepage .hero h1 {
+  color: #ffffff;
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 0 auto 40px;
+  max-width: 900px;
+  position: relative;
+  z-index: 10;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .homepage .hero h1 {
+    font-size: 36px;
+  }
+}
+
+.homepage .hero .btn-primary,
+.homepage .hero button.more {
+  background-color: var(--primary-navy);
+  color: #ffffff;
+  padding: 16px 40px;
+  font-size: 14px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
-  z-index: 1;
+  z-index: 10;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.hero .btn-primary:hover {
-  background: var(--primary-blue);
+.homepage .hero .btn-primary:hover,
+.homepage .hero button.more:hover {
+  background-color: var(--secondary-blue);
 }
 
-/* Engagement Sections */
-.engagement-section {
+/* ==================== ENGAGEMENT SECTIONS ==================== */
+.homepage .engagement-1 {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4rem 2rem;
+  padding: 80px 20px;
   text-align: center;
+  background: #ffffff;
 }
 
-.engagement-section h1 {
-  font-size: clamp(2rem, 4vw, 3.5rem);
+.homepage .engagement-1 h1 {
+  font-size: 48px;
   font-weight: 300;
   max-width: 900px;
   line-height: 1.3;
   color: var(--primary-navy);
+  margin: 0;
 }
 
-.engagement-wrap {
+@media (max-width: 768px) {
+  .homepage .engagement-1 h1 {
+    font-size: 28px;
+  }
+}
+
+.homepage .engagements {
+  background: #ffffff;
+}
+
+.homepage .engagements section .engagement_wrap {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 60px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 80px 40px;
 }
 
-.engagement-wrap .figure-section {
+@media (max-width: 768px) {
+  .homepage .engagements section .engagement_wrap {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    padding: 60px 20px;
+  }
+}
+
+.homepage .engagements .info-section {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .homepage .engagements .info-section {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+.homepage .engagements .figure-section {
   flex: 0 0 120px;
 }
 
-.engagement-wrap .figure-section img {
+.homepage .engagements .figure-section img,
+.homepage .engagements .figure-section .icon-placeholder {
   width: 100px;
   height: 100px;
   object-fit: contain;
 }
 
-.engagement-wrap .divider {
+.homepage .engagements .divider {
   width: 2px;
   height: 150px;
-  background: var(--primary-blue);
+  background: var(--secondary-blue);
+  flex-shrink: 0;
 }
 
-.engagement-wrap .single-text h4 {
-  font-size: 1.5rem;
+@media (max-width: 768px) {
+  .homepage .engagements .divider {
+    width: 100px;
+    height: 2px;
+  }
+}
+
+.homepage .engagements .single-text h4,
+.homepage .engagements .text h4 {
+  font-size: 24px;
   color: var(--primary-navy);
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
+  font-weight: 500;
 }
 
-.engagement-wrap .single-text p {
-  font-size: 1.1rem;
-  line-height: 1.7;
+.homepage .engagements .single-text p,
+.homepage .engagements .text p {
+  font-size: 16px;
+  line-height: 1.8;
   color: #555;
 }
 
-/* Rook I Section */
-.rook-section {
+/* ==================== ROOK I SECTION ==================== */
+.homepage .rook {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(to right, rgba(0,31,72,0.95) 0%, rgba(0,31,72,0.7) 50%, transparent 100%),
-              url('/rook-bg.jpg') center/cover no-repeat;
+  background: var(--primary-navy);
   color: white;
-  padding: 4rem;
+  overflow: hidden;
 }
 
-.rook-section .texts {
+.homepage .rook .bg_wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.homepage .rook .bg-img {
+  position: absolute;
+  inset: 0;
+  background: url('/rook-bg.jpg') center/cover no-repeat;
+  opacity: 0.5;
+}
+
+.homepage .rook .texts {
+  position: relative;
+  z-index: 10;
   max-width: 600px;
+  padding: 80px;
 }
 
-.rook-section .caption {
-  color: var(--neutral-grey-400);
-  font-size: 0.875rem;
+@media (max-width: 768px) {
+  .homepage .rook .texts {
+    padding: 40px 20px;
+    max-width: 100%;
+  }
+}
+
+.homepage .rook .caption {
+  color: #9ca3af;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
-.rook-section h1 {
-  font-size: clamp(2rem, 4vw, 3.5rem);
+.homepage .rook h1 {
+  font-size: 48px;
   font-weight: 300;
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
+  line-height: 1.2;
 }
 
-.rook-section .subheading {
-  font-size: 1.1rem;
+@media (max-width: 768px) {
+  .homepage .rook h1 {
+    font-size: 32px;
+  }
+}
+
+.homepage .rook .subheading {
+  font-size: 18px;
   line-height: 1.8;
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
   opacity: 0.9;
 }
 
-.rook-section .btn-outline {
+.homepage .rook button.more,
+.homepage .rook .btn-outline {
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 16px 32px;
   border: 2px solid white;
+  background: transparent;
   color: white;
   text-decoration: none;
   font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.rook-section .btn-outline:hover {
+.homepage .rook button.more:hover,
+.homepage .rook .btn-outline:hover {
   background: white;
   color: var(--primary-navy);
 }
 
-/* Highlights Section */
-.highlights-section {
-  padding: 6rem 2rem;
-  background: #f8f9fa;
+/* ==================== HIGHLIGHTS / TEAM SECTION ==================== */
+.homepage .engagement-4#highlights {
+  padding: 100px 40px;
+  background: var(--light-bg);
 }
 
-.highlights-section .wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
+@media (max-width: 768px) {
+  .homepage .engagement-4#highlights {
+    padding: 60px 20px;
+  }
 }
 
-.highlights-section h2 {
-  font-size: 2.5rem;
+.homepage .engagement-4 .texts {
+  margin-bottom: 40px;
+}
+
+.homepage .engagement-4 .texts h2 {
+  font-size: 36px;
   color: var(--primary-navy);
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
+  font-weight: 500;
 }
 
-.highlights-section p {
-  font-size: 1.1rem;
+.homepage .engagement-4 .texts p {
+  font-size: 18px;
   color: #555;
-  margin-bottom: 2rem;
 }
 
-.highlights-section .highlights-image {
+.homepage .engagement-4 .highlights-image {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
   display: block;
   border-radius: 8px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
 }
 
-/* Stock Quote Section */
-.stock-section {
+/* ==================== RESPONSIBILITY / VIDEO SECTION ==================== */
+.homepage .responsibility {
+  padding: 100px 40px;
+  background: #ffffff;
+}
+
+.homepage .responsibility h2 {
+  font-size: 36px;
+  color: var(--primary-navy);
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.homepage .responsibility p {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 18px;
+  color: #555;
+}
+
+.homepage .responsibility button.more {
+  display: block;
+  margin: 40px auto;
+  padding: 16px 32px;
   background: var(--primary-navy);
   color: white;
-  padding: 4rem 2rem;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.stock-section .wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
+.homepage .responsibility button.more:hover {
+  background: var(--secondary-blue);
 }
 
-.stock-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-}
-
-.stock-row {
+/* ==================== COMMUNITY CARDS ==================== */
+.homepage .community-cards {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+  justify-content: center;
+  gap: 24px;
+  margin-top: 60px;
+  flex-wrap: wrap;
 }
 
-.stock-row:last-child {
-  border-bottom: none;
-}
-
-.stock-exchange {
-  font-size: 1.25rem;
-  font-weight: 700;
-}
-
-.stock-price {
-  font-size: 2rem;
-  font-weight: 300;
-}
-
-.stock-change {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.stock-change.up {
-  color: #22c55e;
-}
-
-.stock-change.down {
-  color: #ef4444;
-}
-
-/* News Section */
-.news-section {
-  padding: 6rem 2rem;
-}
-
-.news-section .wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.news-section h2 {
-  font-size: 2.5rem;
-  color: var(--primary-navy);
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.news-card {
-  background: white;
+.homepage .community-card {
+  background: var(--primary-navy);
+  color: white;
+  padding: 40px 30px;
   border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  width: 280px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.news-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+.homepage .community-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
-.news-card .content {
-  padding: 1.5rem;
+.homepage .community-card .card-number {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 20px;
 }
 
-.news-card .date {
-  color: var(--neutral-grey-400);
-  font-size: 0.875rem;
-  margin-bottom: 0.5rem;
+.homepage .community-card .title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
 }
 
-.news-card h3 {
-  font-size: 1.125rem;
+.homepage .community-card .subheading {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* ==================== INVESTORS SECTION ==================== */
+.homepage .investors {
+  padding: 0;
+}
+
+.homepage .investors .bg-white {
+  background: #ffffff;
+  padding: 100px 40px;
+}
+
+@media (max-width: 768px) {
+  .homepage .investors .bg-white {
+    padding: 60px 20px;
+  }
+}
+
+.homepage .investors .headline {
+  font-size: 36px;
   color: var(--primary-navy);
-  margin-bottom: 0.75rem;
-  line-height: 1.4;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
-.news-card p {
-  color: #555;
-  font-size: 0.95rem;
-  line-height: 1.6;
+.homepage .investors .module-news,
+.homepage .investors .module-stock {
+  max-width: 1000px;
+  margin: 0 auto 60px;
 }
 
-/* Animations */
-.fade-in {
+.homepage .investors .module-news .title,
+.homepage .investors .module-stock .stock-title {
+  font-size: 24px;
+  color: var(--primary-navy);
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.homepage .investors .module_item {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.homepage .investors .module_date-time {
+  font-size: 14px;
+  color: #9ca3af;
+  margin-bottom: 8px;
+}
+
+.homepage .investors .module_headline-link {
+  font-size: 16px;
+  color: var(--primary-navy);
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1.5;
+  display: block;
+}
+
+.homepage .investors .module_headline-link:hover {
+  color: var(--secondary-blue);
+  text-decoration: underline;
+}
+
+/* Stock Quote Styles */
+.homepage .investors .module-stock-quote .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+  .homepage .investors .module-stock-quote .row {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+.homepage .investors .module-stock_lookup-title {
+  font-size: 24px;
+  color: var(--primary-navy);
+  font-weight: 700;
+  margin: 0;
+}
+
+.homepage .investors .subtitle {
+  font-size: 12px;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.homepage .investors .module-stock_price {
+  font-size: 32px;
+  color: var(--primary-navy);
+  font-weight: 300;
+  margin: 0;
+}
+
+.homepage .investors .module-stock_change {
+  font-size: 24px;
+  color: var(--accent-green);
+  font-weight: 500;
+  margin: 0;
+}
+
+.homepage .investors .module-stock_change-symbol {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-right: 8px;
+}
+
+.homepage .investors .module-stock_up {
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid var(--accent-green);
+}
+
+.homepage .investors .module-stock_down {
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 12px solid #b72121;
+}
+
+.homepage .investors .link-to-more {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.homepage .investors .link-to-more a {
+  color: var(--primary-navy);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.homepage .investors .link-to-more a:hover {
+  text-decoration: underline;
+}
+
+.homepage .investors .plus-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ==================== FADE ANIMATIONS ==================== */
+.fade {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(40px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.fade-in.visible {
+.fade.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .engagement-wrap {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .engagement-wrap .divider {
-    width: 100px;
-    height: 2px;
-  }
-  
-  .rook-section {
-    padding: 2rem;
-    background: linear-gradient(to bottom, rgba(0,31,72,0.95) 0%, rgba(0,31,72,0.85) 100%),
-                url('/rook-bg.jpg') center/cover no-repeat;
-  }
-  
-  .stock-row {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
+/* ==================== UTILITY CLASSES ==================== */
+.center {
+  text-align: center;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+button.more a {
+  color: inherit;
+  text-decoration: none;
 }

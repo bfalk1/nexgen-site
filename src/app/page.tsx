@@ -34,10 +34,14 @@ function useFadeIn() {
 function HeroSection() {
   return (
     <section className="hero">
-      <h1 className="f-light px-4">Securing the Energy Transition</h1>
-      <Link href="/rook-1-project" className="btn-primary">
-        See progress at ROOK I
-      </Link>
+      <div className="bg-img-1"></div>
+      <div className="bg-img-2"></div>
+      <h1 className="f-light">Securing the Energy Transition</h1>
+      <p className="commitmentsCTA">
+        <button className="more">
+          <Link href="/rook-1-project">See progress at ROOK I</Link>
+        </button>
+      </p>
     </section>
   );
 }
@@ -46,7 +50,7 @@ function HeroSection() {
 function EngagementHeadline() {
   const ref = useFadeIn();
   return (
-    <section ref={ref} className="engagement-section fade-in bg-white">
+    <section ref={ref} className="engagement-1 fade" id="home_section-3">
       <h1 className="f-light">
         Setting elite standards for a cleaner more sustainable world
       </h1>
@@ -56,46 +60,61 @@ function EngagementHeadline() {
 
 // Engagement Details Section
 function EngagementDetails() {
-  const ref1 = useFadeIn();
-  const ref2 = useFadeIn();
+  const ref = useFadeIn();
 
   return (
-    <div className="bg-white">
-      <section ref={ref1} className="engagement-wrap fade-in">
-        <div className="figure-section">
-          <div className="w-24 h-24 bg-[#0f5ca3]/10 rounded-full flex items-center justify-center">
-            <svg className="w-12 h-12 text-[#0f5ca3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+    <div className="engagements">
+      <section className="engagement-2 fade" id="home_section-4" ref={ref}>
+        <div className="engagement_wrap" id="e1">
+          <div className="info-section">
+            <div className="figure-section">
+              <Image 
+                src="https://s28.q4cdn.com/891672792/files/design/homepage/Icon.png" 
+                alt="Environmental icon"
+                width={100}
+                height={100}
+                className="single-figure single-figure_first"
+              />
+            </div>
+            <div className="divider"></div>
+            <div className="single-text_wrapper">
+              <div className="single-text single-text_first">
+                <h4 className="title">Industry leading environmental performance</h4>
+                <p className="subheading">
+                  NexGen&apos;s projects are designed ensuring the highest levels of environmental
+                  performance incorporating &quot;absolute minimalistic expression&quot;, progressive real time
+                  reclamation and advanced closure management design.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="divider hidden md:block"></div>
-        <div className="single-text">
-          <h4>Industry leading environmental performance</h4>
-          <p>
-            NexGen&apos;s projects are designed ensuring the highest levels of environmental
-            performance incorporating &quot;absolute minimalistic expression&quot;, progressive real time
-            reclamation and advanced closure management design.
-          </p>
         </div>
       </section>
 
-      <section ref={ref2} className="engagement-wrap fade-in">
-        <div className="figure-section">
-          <div className="w-24 h-24 bg-[#0f5ca3]/10 rounded-full flex items-center justify-center">
-            <svg className="w-12 h-12 text-[#0f5ca3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-            </svg>
+      <section className="engagement-3 fade" id="home_section-5">
+        <div className="engagement_wrap added-top" id="e2">
+          <div className="info-section">
+            <div className="figure-section">
+              <Image 
+                src="https://s28.q4cdn.com/891672792/files/design/homepage/Frame.png" 
+                alt="Legacy icon"
+                width={100}
+                height={100}
+                className="single-figure"
+              />
+            </div>
+            <div className="divider"></div>
+            <div className="single-text_wrapper">
+              <div className="single-text">
+                <h4 className="title">Lasting legacy beyond life-of-mine</h4>
+                <p className="subheading">
+                  Focused on maximizing value to all stakeholders, NexGen is leveraging
+                  its strong portfolio of projects to deliver generational benefits for Canada and the
+                  global environment that continue long after closure and reclamation of its projects.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="divider hidden md:block"></div>
-        <div className="single-text">
-          <h4>Lasting legacy beyond life-of-mine</h4>
-          <p>
-            Focused on maximizing value to all stakeholders, NexGen is leveraging
-            its strong portfolio of projects to deliver generational benefits for Canada and the
-            global environment that continue long after closure and reclamation of its projects.
-          </p>
         </div>
       </section>
     </div>
@@ -106,18 +125,21 @@ function EngagementDetails() {
 function RookSection() {
   const ref = useFadeIn();
   return (
-    <section ref={ref} className="rook-section fade-in">
+    <section ref={ref} className="rook fade" id="home_section-6">
       <div className="texts">
-        <p className="caption">PROJECT</p>
+        <h4 className="caption">PROJECT</h4>
         <h1 className="f-light">A leading global project</h1>
         <p className="subheading">
           Rook I is a proposed uranium mine and mill development located in Saskatchewan&apos;s 
           southwestern Athabasca Basin. It will be a significant supplier of uranium to meet 
           growing global demand for a zero emission clean energy source.
         </p>
-        <Link href="/rook-1-project" className="btn-outline">
-          Learn more about Rook I
-        </Link>
+        <button className="more">
+          <Link href="/rook-1-project">Learn more about Rook I</Link>
+        </button>
+      </div>
+      <div className="bg_wrap full-screen">
+        <div className="bg-img zoomed full-screen"></div>
       </div>
     </section>
   );
@@ -127,115 +149,226 @@ function RookSection() {
 function HighlightsSection() {
   const ref = useFadeIn();
   return (
-    <section ref={ref} className="highlights-section fade-in">
-      <div className="wrapper">
-        <div className="text-center mb-12">
-          <h2>NexGen Team Profile</h2>
-          <p>
-            Proven leadership and execution experience powering NexGen from development to production.
-          </p>
-        </div>
-        <div className="bg-white rounded-lg p-8 shadow-lg">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-light text-[#0f5ca3] mb-2">150+</div>
-              <div className="text-gray-600">Team Members</div>
-            </div>
-            <div>
-              <div className="text-4xl font-light text-[#0f5ca3] mb-2">200+</div>
-              <div className="text-gray-600">Years Combined Experience</div>
-            </div>
-            <div>
-              <div className="text-4xl font-light text-[#0f5ca3] mb-2">$10B+</div>
-              <div className="text-gray-600">Project Development Experience</div>
-            </div>
+    <section ref={ref} className="engagement-4 fade" id="highlights">
+      <div className="corporate-presentations-wrapper engagement_wrap" id="e4">
+        <div className="texts">
+          <div className="text-left">
+            <h2>NexGen Team Profile</h2>
+            <p>Proven leadership and execution experience powering NexGen from development to production.</p>
           </div>
+        </div>
+        <div className="text-center">
+          <Image 
+            src="https://s28.q4cdn.com/891672792/files/images/2026/01/Approved-Homepage-blue.png" 
+            alt="NexGen Team Profile"
+            width={1000}
+            height={500}
+            className="highlights-image"
+          />
         </div>
       </div>
     </section>
   );
 }
 
-// Stock Quote Section
-function StockSection() {
-  return (
-    <section className="stock-section">
-      <div className="wrapper">
-        <h2 className="f-light">Stock Information</h2>
-        <div className="stock-row">
-          <div className="stock-exchange">
-            <span className="text-gray-400 text-sm block">TSX</span>
-            NXE
-          </div>
-          <div className="stock-price">$12.45</div>
-          <div className="stock-change up">
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
-            </svg>
-            <span>+0.32 (+2.64%)</span>
-          </div>
-        </div>
-        <div className="stock-row">
-          <div className="stock-exchange">
-            <span className="text-gray-400 text-sm block">NYSE</span>
-            NXE
-          </div>
-          <div className="stock-price">$9.18</div>
-          <div className="stock-change up">
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
-            </svg>
-            <span>+0.24 (+2.68%)</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// News Section
-function NewsSection() {
+// Responsibility / Video Section
+function ResponsibilitySection() {
   const ref = useFadeIn();
-  const news = [
-    {
-      date: "February 5, 2026",
-      title: "NexGen Reports Q4 2025 Results and Provides 2026 Guidance",
-      excerpt: "NexGen Energy Ltd. announces fourth quarter 2025 financial results and operational update.",
-    },
-    {
-      date: "January 28, 2026",
-      title: "NexGen Receives Key Regulatory Milestone for Rook I Project",
-      excerpt: "Significant progress made in the permitting process for the Rook I uranium project.",
-    },
-    {
-      date: "January 15, 2026",
-      title: "NexGen Announces Appointment of New Board Member",
-      excerpt: "Company strengthens board with appointment of industry veteran.",
-    },
-  ];
-
   return (
-    <section ref={ref} className="news-section fade-in">
-      <div className="wrapper">
-        <h2>Latest News</h2>
-        <div className="news-grid">
-          {news.map((item, index) => (
-            <article key={index} className="news-card">
-              <div className="content">
-                <p className="date">{item.date}</p>
-                <h3>{item.title}</h3>
-                <p>{item.excerpt}</p>
-              </div>
-            </article>
-          ))}
+    <section ref={ref} className="responsibility fade" id="home_section-7">
+      <div className="texts" id="video">
+        <div style={{ paddingBottom: '60px' }}>
+          <h2 className="f-light center">
+            Canadian Nuclear Safety Commission Hearing<br />
+            Rook I Project Presentation Videos
+          </h2>
+          <div style={{ display: 'flex', gap: '24px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '30px' }}>
+            <iframe 
+              width="560" 
+              height="315" 
+              src="https://www.youtube.com/embed/3vtvRyXjUCU?si=B3M82-P4xuaZ86NT" 
+              title="YouTube video player" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerPolicy="strict-origin-when-cross-origin" 
+              allowFullScreen
+            />
+            <iframe 
+              width="560" 
+              height="315" 
+              src="https://www.youtube.com/embed/wgQQfatDxoU?si=0WMuxSPxNWme_Qq6" 
+              title="YouTube video player" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerPolicy="strict-origin-when-cross-origin" 
+              allowFullScreen
+            />
+          </div>
+          <p style={{ marginTop: '30px' }}>
+            For more videos on our industry-leading approach to responsible development,{' '}
+            <a href="https://www.nexgenenergy.ca/sustainability/default.aspx#environmental-stewardship" target="_blank" rel="noopener noreferrer">
+              click here
+            </a>.
+          </p>
+          <button className="more">
+            <Link href="/sustainability#environmental-stewardship">
+              OUR IMPACT<br />VIDEOS
+            </Link>
+          </button>
         </div>
-        <div className="text-center mt-8">
-          <Link 
-            href="/news" 
-            className="inline-block px-8 py-3 border-2 border-[#001f48] text-[#001f48] font-semibold hover:bg-[#001f48] hover:text-white transition-colors"
-          >
-            View All News
-          </Link>
+
+        <h2 className="f-light center">Creating as much positivity as possible</h2>
+        <p>Delivering clean energy solutions while leaving lasting economic, social, and environmental benefits</p>
+      </div>
+
+      <div className="community-cards" id="home_section-8">
+        <div className="community-card community-card-1">
+          <span className="card-number">01 .</span>
+          <div className="community_wrap">
+            <h3 className="title">Community Programs</h3>
+            <p className="subheading">
+              Working in partnership to build meaningful community programs centered around
+              education, health and wellness, and economic capacity building.
+            </p>
+          </div>
+        </div>
+
+        <div className="community-card community-card-2">
+          <span className="card-number">02 .</span>
+          <div className="community_wrap">
+            <h3 className="title">Indigenous &amp; Community Engagement</h3>
+            <p className="subheading">
+              NexGen is committed to listening, learning and responding to help create the
+              conditions for the most positive impact possible.
+            </p>
+          </div>
+        </div>
+
+        <div className="community-card community-card-3">
+          <span className="card-number">03 .</span>
+          <div className="community_wrap">
+            <h3 className="title">Health &amp; Safety</h3>
+            <p className="subheading">
+              The health, safety and well-being of all is of paramount importance and guides
+              our decisions and actions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Investors Section
+function InvestorsSection() {
+  const ref = useFadeIn();
+  return (
+    <section ref={ref} className="investors fade">
+      <div className="bg-white" id="home_section-9">
+        <h2 className="headline">Future supplier of clean energy fuel</h2>
+
+        {/* News Module */}
+        <div className="module-news">
+          <h3 className="title f-bold">Investor News</h3>
+          <div className="module_container module_container--widget">
+            <div className="module_container--content" id="newsList">
+              <div className="module_item">
+                <div className="module_date-time">January 22, 2026</div>
+                <a className="module_headline-link" href="#">
+                  NexGen Establishes Partnership with Indigenous Communities to Develop a New Hotel in La Loche to Support the Communities and Rook I Project
+                </a>
+              </div>
+              <div className="module_item">
+                <div className="module_date-time">January 15, 2026</div>
+                <a className="module_headline-link" href="#">
+                  NexGen Announces Expansion of High-Grade Subdomain at Patterson Corridor East (PCE) and Commencement of 2026 Exploration Program Totalling 45,500 Meters
+                </a>
+              </div>
+              <div className="link-to-more link-to-more_news">
+                <Image 
+                  src="https://s28.q4cdn.com/891672792/files/design/svg/plus.svg" 
+                  alt="More"
+                  width={20}
+                  height={20}
+                  className="plus-icon"
+                />
+                <Link href="/news">More News</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Stock Module */}
+        <div className="module-stock">
+          <h3 className="f-bold stock-title">NXE Stock info</h3>
+          <div className="module-stock-quote">
+            <div className="module_container--tsx">
+              <div className="row">
+                <div className="module-stock-quote_exchange-cont--desktop">
+                  <h2 className="module-stock_lookup-title">TSX</h2>
+                </div>
+                <div className="module-stock-quote_last-cont">
+                  <h6 className="subtitle last">Last</h6>
+                  <h2 className="module-stock_price">$15.76</h2>
+                </div>
+                <div className="module-stock-quote_caret-cont">
+                  <span className="module-stock_change-symbol module-stock_up"></span>
+                </div>
+                <div className="module-stock-quote_change-cont">
+                  <h6 className="subtitle change">Change</h6>
+                  <h2 className="module-stock_change">$0.72</h2>
+                </div>
+              </div>
+            </div>
+
+            <div className="module_container--nyse">
+              <div className="row">
+                <div className="module-stock-quote_exchange-cont--desktop">
+                  <h2 className="module-stock_lookup-title">NYSE</h2>
+                </div>
+                <div className="module-stock-quote_last-cont">
+                  <h6 className="subtitle last">Last</h6>
+                  <h2 className="module-stock_price">$11.63</h2>
+                </div>
+                <div className="module-stock-quote_caret-cont">
+                  <span className="module-stock_change-symbol module-stock_up"></span>
+                </div>
+                <div className="module-stock-quote_change-cont">
+                  <h6 className="subtitle change">Change</h6>
+                  <h2 className="module-stock_change">$0.58</h2>
+                </div>
+              </div>
+            </div>
+
+            <div className="module_container--asx">
+              <div className="row">
+                <div className="module-stock-quote_exchange-cont--desktop">
+                  <h2 className="module-stock_lookup-title">ASX</h2>
+                </div>
+                <div className="module-stock-quote_last-cont">
+                  <h6 className="subtitle last">Last</h6>
+                  <h2 className="module-stock_price">$15.83</h2>
+                </div>
+                <div className="module-stock-quote_caret-cont">
+                  <span className="module-stock_change-symbol module-stock_up"></span>
+                </div>
+                <div className="module-stock-quote_change-cont">
+                  <h6 className="subtitle change">Change</h6>
+                  <h2 className="module-stock_change">$0.23</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="link-to-more link-to-more_stock">
+            <Image 
+              src="https://s28.q4cdn.com/891672792/files/design/svg/plus.svg" 
+              alt="More"
+              width={20}
+              height={20}
+              className="plus-icon"
+            />
+            <Link href="/investor-center#stock-information">Stock Details</Link>
+          </div>
         </div>
       </div>
     </section>
@@ -245,14 +378,14 @@ function NewsSection() {
 // Main Homepage
 export default function Home() {
   return (
-    <div className="pt-20">
+    <div className="homepage pt-20">
       <HeroSection />
       <EngagementHeadline />
       <EngagementDetails />
       <RookSection />
       <HighlightsSection />
-      <StockSection />
-      <NewsSection />
+      <ResponsibilitySection />
+      <InvestorsSection />
     </div>
   );
 }
