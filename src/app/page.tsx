@@ -221,37 +221,34 @@ function ResponsibilitySection() {
         <p>Delivering clean energy solutions while leaving lasting economic, social, and environmental benefits</p>
       </div>
 
-      <div className="community-cards" id="home_section-8">
-        <div className="community-card community-card-1">
-          <span className="card-number">01 .</span>
-          <div className="community_wrap">
-            <h3 className="title">Community Programs</h3>
-            <p className="subheading">
-              Working in partnership to build meaningful community programs centered around
-              education, health and wellness, and economic capacity building.
-            </p>
+      {/* Community Cards with Background Images */}
+      <div className="community-cards-section">
+        <div className="community-cards-grid">
+          <div 
+            className="community-card-new"
+            style={{ backgroundImage: "url('https://s28.q4cdn.com/891672792/files/images/2025/image.png')" }}
+          >
+            <div className="card-overlay">
+              <h3>Community Programs</h3>
+            </div>
           </div>
-        </div>
 
-        <div className="community-card community-card-2">
-          <span className="card-number">02 .</span>
-          <div className="community_wrap">
-            <h3 className="title">Indigenous &amp; Community Engagement</h3>
-            <p className="subheading">
-              NexGen is committed to listening, learning and responding to help create the
-              conditions for the most positive impact possible.
-            </p>
+          <div 
+            className="community-card-new"
+            style={{ backgroundImage: "url('https://s28.q4cdn.com/891672792/files/images/2025/image-1.png')" }}
+          >
+            <div className="card-overlay">
+              <h3>Indigenous &amp;<br />Community<br />Engagement</h3>
+            </div>
           </div>
-        </div>
 
-        <div className="community-card community-card-3">
-          <span className="card-number">03 .</span>
-          <div className="community_wrap">
-            <h3 className="title">Health &amp; Safety</h3>
-            <p className="subheading">
-              The health, safety and well-being of all is of paramount importance and guides
-              our decisions and actions.
-            </p>
+          <div 
+            className="community-card-new"
+            style={{ backgroundImage: "url('https://s28.q4cdn.com/891672792/files/design/homepage/health.png')" }}
+          >
+            <div className="card-overlay">
+              <h3>Health &amp;<br />Safety</h3>
+            </div>
           </div>
         </div>
       </div>

@@ -381,47 +381,72 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==================== COMMUNITY CARDS ==================== */
-.homepage .community-cards {
+.homepage .community-cards-section {
+  background: var(--primary-navy);
+  padding: 60px 40px;
+  margin-top: 60px;
+}
+
+.homepage .community-cards-grid {
   display: flex;
   justify-content: center;
   gap: 24px;
-  margin-top: 60px;
-  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.homepage .community-card {
-  background: var(--primary-navy);
-  color: white;
-  padding: 40px 30px;
-  border-radius: 8px;
-  width: 280px;
-  min-height: 300px;
+@media (max-width: 768px) {
+  .homepage .community-cards-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.homepage .community-card-new {
+  width: 350px;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.homepage .community-card-new:hover {
+  transform: scale(1.02);
+}
+
+.homepage .community-card-new .card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 25px;
+  background: linear-gradient(to top, rgba(0,31,72,0.9) 0%, rgba(0,31,72,0.7) 50%, transparent 100%);
+  min-height: 40%;
   display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  align-items: flex-end;
 }
 
-.homepage .community-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-}
-
-.homepage .community-card .card-number {
-  font-size: 14px;
-  opacity: 0.7;
-  margin-bottom: 20px;
-}
-
-.homepage .community-card .title {
-  font-size: 20px;
+.homepage .community-card-new .card-overlay h3 {
+  color: white;
+  font-size: 28px;
   font-weight: 600;
-  margin-bottom: 16px;
+  line-height: 1.2;
+  margin: 0;
 }
 
-.homepage .community-card .subheading {
-  font-size: 14px;
-  line-height: 1.7;
-  opacity: 0.9;
+@media (max-width: 768px) {
+  .homepage .community-card-new {
+    width: 100%;
+    max-width: 350px;
+    height: 400px;
+  }
+  
+  .homepage .community-card-new .card-overlay h3 {
+    font-size: 24px;
+  }
 }
 
 /* ==================== INVESTORS SECTION ==================== */
