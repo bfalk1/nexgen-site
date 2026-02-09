@@ -5,8 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 const navItems = [
-  { label: "Overview", href: "/" },
-  { label: "Homepage", href: "/" },
   {
     label: "Company",
     children: [
@@ -88,9 +86,14 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <div className="text-[#001f48] font-bold text-2xl tracking-tight">
-              <span className="font-light">Nex</span>Gen
-            </div>
+            <Image
+              src="https://s28.q4cdn.com/891672792/files/design/NexGen-Logo.svg"
+              alt="NexGen Energy Logo"
+              width={160}
+              height={45}
+              className="h-10 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -103,16 +106,16 @@ export default function Header() {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 {item.children ? (
-                  <button className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#0f5ca3] transition-colors flex items-center gap-1">
+                  <button className="px-3 py-2 text-sm font-medium text-[#002F6C] hover:text-[#77bc1f] transition-colors flex items-center gap-1">
                     {item.label}
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
                 ) : (
                   <Link
                     href={item.href || "/"}
-                    className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#0f5ca3] transition-colors"
+                    className="px-3 py-2 text-sm font-medium text-[#002F6C] hover:text-[#77bc1f] transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -120,12 +123,12 @@ export default function Header() {
 
                 {/* Dropdown */}
                 {item.children && activeDropdown === item.label && (
-                  <div className="absolute top-full left-0 w-56 bg-white shadow-lg border border-gray-100 rounded-md py-2 mt-1">
+                  <div className="absolute top-full left-0 w-64 bg-white shadow-lg border-t-2 border-[#77bc1f] py-2 mt-0">
                     {item.children.map((child) => (
                       <Link
                         key={child.label}
                         href={child.href}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#0f5ca3] transition-colors"
+                        className="block px-5 py-2.5 text-sm text-[#002F6C] hover:bg-[#F8FAFC] hover:text-[#77bc1f] transition-colors"
                       >
                         {child.label}
                       </Link>
@@ -136,7 +139,7 @@ export default function Header() {
             ))}
 
             {/* Search Icon */}
-            <button className="p-2 text-gray-700 hover:text-[#0f5ca3] transition-colors">
+            <button className="p-2 text-[#002F6C] hover:text-[#77bc1f] transition-colors ml-2">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
@@ -145,7 +148,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-gray-700"
+            className="lg:hidden p-2 text-[#002F6C]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -162,24 +165,24 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100">
-          <div className="px-4 py-4 space-y-2">
+        <div className="lg:hidden bg-white border-t border-gray-100 max-h-[80vh] overflow-y-auto">
+          <div className="px-4 py-4 space-y-1">
             {navItems.map((item) => (
               <div key={item.label}>
                 {item.children ? (
                   <details className="group">
-                    <summary className="flex items-center justify-between px-3 py-2 text-sm font-medium text-gray-700 cursor-pointer">
+                    <summary className="flex items-center justify-between px-3 py-3 text-sm font-medium text-[#002F6C] cursor-pointer hover:bg-[#F8FAFC] rounded">
                       {item.label}
                       <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </summary>
-                    <div className="pl-4 space-y-1 mt-1">
+                    <div className="pl-4 space-y-1 mt-1 border-l-2 border-[#77bc1f] ml-3">
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="block px-3 py-2 text-sm text-gray-600 hover:text-[#0f5ca3]"
+                          className="block px-3 py-2 text-sm text-gray-600 hover:text-[#77bc1f] hover:bg-[#F8FAFC] rounded"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {child.label}
@@ -190,7 +193,7 @@ export default function Header() {
                 ) : (
                   <Link
                     href={item.href || "/"}
-                    className="block px-3 py-2 text-sm font-medium text-gray-700 hover:text-[#0f5ca3]"
+                    className="block px-3 py-3 text-sm font-medium text-[#002F6C] hover:bg-[#F8FAFC] rounded"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.label}
