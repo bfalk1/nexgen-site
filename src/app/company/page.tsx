@@ -3,20 +3,133 @@
 import Image from "next/image";
 
 const managementTeam = [
-  { name: "Leigh Curyer", title: "Chief Executive Officer", image: "https://s28.q4cdn.com/891672792/files/images/team/Leigh-Curyer.jpg" },
-  { name: "Travis McPherson", title: "President", image: "https://s28.q4cdn.com/891672792/files/images/team/Travis-McPherson.jpg" },
-  { name: "Lee Bowles", title: "Chief Financial Officer", image: "https://s28.q4cdn.com/891672792/files/images/team/Lee-Bowles.jpg" },
-  { name: "Troy Boisjoli", title: "VP, Operations & Project Development", image: "https://s28.q4cdn.com/891672792/files/images/team/Troy-Boisjoli.jpg" },
+  { 
+    name: "Leigh R. Curyer", 
+    title: "Chief Executive Officer & Director", 
+    image: "https://s28.q4cdn.com/891672792/files/images/exec/NexGenLeighCuryer089-WEB.jpg" 
+  },
+  { 
+    name: "Travis G. McPherson", 
+    title: "President", 
+    image: "https://s28.q4cdn.com/891672792/files/images/management/nexgen-travismcpherson0011_websmall2.jpg" 
+  },
+  { 
+    name: "Benjamin Salter", 
+    title: "Chief Financial Officer", 
+    image: "https://s28.q4cdn.com/891672792/files/images/project_leadership/BenSalter013-WEBsmall.jpg" 
+  },
+  { 
+    name: "Graeme Johnson", 
+    title: "VP, Project Development", 
+    image: "https://s28.q4cdn.com/891672792/files/images/exec/Graeme-Johnson-2-1.jpg" 
+  },
+  { 
+    name: "Luke Moger", 
+    title: "VP, Exploration", 
+    image: "https://s28.q4cdn.com/891672792/files/images/project/NexGenLukeMoger086-WEB.jpg" 
+  },
+  { 
+    name: "Monica Kras", 
+    title: "VP, Regulatory & Indigenous Affairs", 
+    image: "https://s28.q4cdn.com/891672792/files/images/project_leadership/Monkia-Kras.jpg" 
+  },
+  { 
+    name: "Mary Fraser", 
+    title: "VP, Corporate Services", 
+    image: "https://s28.q4cdn.com/891672792/files/images/exec/NexGenMaryFraser065-WEB.jpg" 
+  },
+  { 
+    name: "Adam Engdahl", 
+    title: "VP, Engineering", 
+    image: "https://s28.q4cdn.com/891672792/files/images/project_leadership/Adam-Engdahl.jpg" 
+  },
+];
+
+const projectLeadership = [
+  { 
+    name: "Michelle Cho", 
+    title: "Director, Environment", 
+    image: "https://s28.q4cdn.com/891672792/files/images/project_leadership/michellecho0008-print_web.jpg" 
+  },
+  { 
+    name: "Dylan Smart", 
+    title: "Director, Indigenous & Community Relations", 
+    image: "https://s28.q4cdn.com/891672792/files/images/2023/06/Dylan-Smart-1.png" 
+  },
+  { 
+    name: "Jason Craven", 
+    title: "Director, Health & Safety", 
+    image: "https://s28.q4cdn.com/891672792/files/images/project_leadership/Jason-Craven.jpg" 
+  },
 ];
 
 const boardMembers = [
-  { name: "Leigh Curyer", title: "CEO & Director" },
-  { name: "Christopher McFadden", title: "Chairman" },
-  { name: "Warren Finlay", title: "Director" },
-  { name: "Karri Howlett", title: "Director" },
-  { name: "Richard Patricio", title: "Director" },
-  { name: "Sybil Veenman", title: "Director" },
+  { 
+    name: "Christopher McFadden", 
+    title: "Chairman", 
+    image: "https://s28.q4cdn.com/891672792/files/images/board/Update-Chris-McFadden.jpg" 
+  },
+  { 
+    name: "Richard Patricio", 
+    title: "Director", 
+    image: "https://s28.q4cdn.com/891672792/files/images/board/Update-Richard.jpg" 
+  },
+  { 
+    name: "Sharon Birkett", 
+    title: "Director", 
+    image: "https://s28.q4cdn.com/891672792/files/images/board/2025/Sharon-Birkett.jpeg" 
+  },
+  { 
+    name: "Warren Gilman", 
+    title: "Director", 
+    image: "https://s28.q4cdn.com/891672792/files/images/board/Update-Warren-Gilman.jpg" 
+  },
+  { 
+    name: "Sybil Veenman", 
+    title: "Director", 
+    image: "https://s28.q4cdn.com/891672792/files/images/board/181024_Nexgen_Sybil_0058-c_2_1-1.png" 
+  },
+  { 
+    name: "Karri Howlett", 
+    title: "Director", 
+    image: "https://s28.q4cdn.com/891672792/files/images/board/181024_Nexgen-Karri_0040-c_2_1-1.png" 
+  },
+  { 
+    name: "Brad Wall", 
+    title: "Director", 
+    image: "https://s28.q4cdn.com/891672792/files/images/board/brad-wall-website.jpg" 
+  },
+  { 
+    name: "Ivan Mullany", 
+    title: "Director", 
+    image: "https://s28.q4cdn.com/891672792/files/images/board/Ivan-Mullany.jpg" 
+  },
+  { 
+    name: "Simon Allard", 
+    title: "Director", 
+    image: "https://s28.q4cdn.com/891672792/files/images/board/SimAllard28.jpg" 
+  },
 ];
+
+function PersonCard({ person }: { person: { name: string; title: string; image: string } }) {
+  return (
+    <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+      <div className="aspect-square relative bg-gray-100">
+        <Image
+          src={person.image}
+          alt={person.name}
+          fill
+          className="object-cover object-top"
+          sizes="(max-width: 768px) 50vw, 25vw"
+        />
+      </div>
+      <div className="p-6">
+        <h3 className="font-semibold text-[#001F48] text-lg">{person.name}</h3>
+        <p className="text-gray-500 text-sm mt-1">{person.title}</p>
+      </div>
+    </div>
+  );
+}
 
 export default function CompanyPage() {
   return (
@@ -88,39 +201,38 @@ export default function CompanyPage() {
           <h2 className="text-3xl font-light text-[#001F48] mb-12 text-center">Management Team</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {managementTeam.map((person) => (
-              <div key={person.name} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-                <div className="aspect-square bg-gray-200 relative">
-                  <div className="absolute inset-0 bg-[#001F48] flex items-center justify-center">
-                    <span className="text-white text-4xl font-light">{person.name.charAt(0)}</span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-semibold text-[#001F48] text-lg">{person.name}</h3>
-                  <p className="text-gray-500 text-sm mt-1">{person.title}</p>
-                </div>
-              </div>
+              <PersonCard key={person.name} person={person} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Project Leadership */}
+      <section className="py-20 px-8 bg-white">
+        <div className="max-w-[1200px] mx-auto">
+          <h2 className="text-3xl font-light text-[#001F48] mb-12 text-center">Project Leadership</h2>
+          <div className="grid md:grid-cols-3 gap-8 max-w-[900px] mx-auto">
+            {projectLeadership.map((person) => (
+              <PersonCard key={person.name} person={person} />
             ))}
           </div>
         </div>
       </section>
 
       {/* Board of Directors */}
-      <section id="board-of-directors" className="py-20 px-8 bg-white">
+      <section id="board-of-directors" className="py-20 px-8 bg-[#F8FAFC]">
         <div className="max-w-[1200px] mx-auto">
           <h2 className="text-3xl font-light text-[#001F48] mb-12 text-center">Board of Directors</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {boardMembers.map((person) => (
-              <div key={person.name} className="border border-gray-200 rounded-lg p-6 hover:border-[#77bc1f] transition-colors">
-                <h3 className="font-semibold text-[#001F48] text-lg">{person.name}</h3>
-                <p className="text-gray-500 text-sm mt-1">{person.title}</p>
-              </div>
+              <PersonCard key={person.name} person={person} />
             ))}
           </div>
         </div>
       </section>
 
       {/* Corporate Governance */}
-      <section id="corporate-governance" className="py-20 px-8 bg-[#F8FAFC]">
+      <section id="corporate-governance" className="py-20 px-8 bg-white">
         <div className="max-w-[1200px] mx-auto">
           <h2 className="text-3xl font-light text-[#001F48] mb-8">Corporate Governance</h2>
           <p className="text-lg text-gray-600 leading-relaxed mb-8">
@@ -128,7 +240,7 @@ export default function CompanyPage() {
             Our governance framework ensures accountability, transparency, and ethical business practices.
           </p>
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg">
+            <div className="bg-[#F8FAFC] p-6 rounded-lg">
               <h3 className="font-semibold text-[#001F48] mb-3">Board Committees</h3>
               <ul className="space-y-2 text-gray-600 text-sm">
                 <li>• Audit Committee</li>
@@ -137,7 +249,7 @@ export default function CompanyPage() {
                 <li>• Health, Safety & Environment Committee</li>
               </ul>
             </div>
-            <div className="bg-white p-6 rounded-lg">
+            <div className="bg-[#F8FAFC] p-6 rounded-lg">
               <h3 className="font-semibold text-[#001F48] mb-3">Policies</h3>
               <ul className="space-y-2 text-gray-600 text-sm">
                 <li>• Code of Business Conduct</li>
@@ -146,7 +258,7 @@ export default function CompanyPage() {
                 <li>• Diversity Policy</li>
               </ul>
             </div>
-            <div className="bg-white p-6 rounded-lg">
+            <div className="bg-[#F8FAFC] p-6 rounded-lg">
               <h3 className="font-semibold text-[#001F48] mb-3">Documents</h3>
               <ul className="space-y-2 text-gray-600 text-sm">
                 <li>• Articles of Incorporation</li>
