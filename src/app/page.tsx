@@ -226,28 +226,46 @@ function ResponsibilitySection() {
         <div className="community-cards-grid">
           <div 
             className="community-card-new"
+            data-title="Community Programs"
             style={{ backgroundImage: "url('https://s28.q4cdn.com/891672792/files/images/2025/image.png')" }}
           >
-            <div className="card-overlay">
+            <div className="card-content">
+              <span className="card-number">01.</span>
               <h3>Community Programs</h3>
+              <p className="card-description">
+                Working in partnership to build meaningful community programs centered around 
+                education, health and wellness, and economic capacity building.
+              </p>
             </div>
           </div>
 
           <div 
             className="community-card-new"
+            data-title="Indigenous & Community Engagement"
             style={{ backgroundImage: "url('https://s28.q4cdn.com/891672792/files/images/2025/image-1.png')" }}
           >
-            <div className="card-overlay">
-              <h3>Indigenous &amp;<br />Community<br />Engagement</h3>
+            <div className="card-content">
+              <span className="card-number">02.</span>
+              <h3>Indigenous &amp; Community Engagement</h3>
+              <p className="card-description">
+                NexGen is committed to listening, learning and responding to help create the 
+                conditions for the most positive impact possible.
+              </p>
             </div>
           </div>
 
           <div 
             className="community-card-new"
+            data-title="Health & Safety"
             style={{ backgroundImage: "url('https://s28.q4cdn.com/891672792/files/design/homepage/health.png')" }}
           >
-            <div className="card-overlay">
-              <h3>Health &amp;<br />Safety</h3>
+            <div className="card-content">
+              <span className="card-number">03.</span>
+              <h3>Health &amp; Safety</h3>
+              <p className="card-description">
+                The health, safety and well-being of all is of paramount importance and guides 
+                our decisions and actions.
+              </p>
             </div>
           </div>
         </div>
